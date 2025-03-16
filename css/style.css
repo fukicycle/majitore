@@ -1,0 +1,90 @@
+/* reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-size: 17px;
+}
+
+:root {
+    --primary-color: #F2F2F2;
+    --accent-color: #EB5B00;
+    --primary-font-color: #1A1A1A;
+    --accent-font-color: #F2F2F2;
+    --primary-shadow: rgba(0, 0, 0, .25);
+}
+
+/* element style */
+.btn {
+    border: none;
+    border-radius: 4px;
+    box-shadow: 0 4px 8px var(--primary-shadow);
+    background-color: var(--accent-color);
+    color: var(--accent-font-color);
+    font-weight: 900;
+    font-family: "Zen Maru Gohtic";
+    font-style: normal;
+    padding: 8px 16px;
+    cursor: pointer;
+    z-index: 10;
+}
+
+.btn:active {
+    box-shadow: 0 2px 4px var(--primary-shadow);
+}
+
+a {
+    color: var(--primary-font-color);
+}
+
+a:visited {
+    color: var(--primary-font-color);
+}
+
+/* html style */
+
+html {
+    background-color: #F2F2F2;
+}
+
+header {
+    background-color: #F2F2F2;
+    box-shadow: 0 4px 8px var(--primary-shadow);
+    height: 80px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 20px;
+    position: sticky;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 100;
+}
+
+main {
+    padding: 4px;
+}
+
+.title {
+    font-size: 24px;
+    font-weight: 900;
+}
+
+nav {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+}
+
+footer {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 100px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
