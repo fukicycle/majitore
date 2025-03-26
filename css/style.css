@@ -3,7 +3,6 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    font-size: 17px;
 }
 
 :root {
@@ -12,6 +11,8 @@
     --primary-font-color: #1A1A1A;
     --accent-font-color: #F2F2F2;
     --primary-shadow: rgba(0, 0, 0, .25);
+    --gap: clamp(4px, 10vh, 8px);
+    --gap-2: clamp(8px, 10vh, 16px);
 }
 
 /* element style */
@@ -24,9 +25,10 @@
     font-weight: 900;
     font-family: "Zen Maru Gohtic";
     font-style: normal;
-    padding: 8px 16px;
+    padding: var(--gap) var(--gap-2);
     cursor: pointer;
     z-index: 10;
+    font-size: 1.1em;
 }
 
 .btn:active {
@@ -45,12 +47,40 @@ a:visited {
 
 html {
     background-color: #F2F2F2;
+    height: 100%;
+    font-size: clamp(17px, 2vw, 24px);
+}
+
+body {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+h1 {
+    font-size: 1.8em;
+    font-weight: 900;
+}
+
+h2 {
+    font-size: 1.6em;
+    font-weight: 900;
+}
+
+h3 {
+    font-size: 1.3em;
+    font-weight: 900;
+}
+
+h4 {
+    font-size: 1.1em;
+    font-weight: 900;
 }
 
 header {
     background-color: #F2F2F2;
     box-shadow: 0 4px 8px var(--primary-shadow);
-    height: 80px;
+    min-height: 80px;
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -63,11 +93,12 @@ header {
 }
 
 main {
-    padding: 4px;
+    padding: var(--gap);
+    flex: 1;
 }
 
 .title {
-    font-size: 24px;
+    font-size: 1.7em;
     font-weight: 900;
 }
 
@@ -75,16 +106,20 @@ nav {
     display: flex;
     align-items: center;
     justify-content: center;
-    gap: 8px;
+    gap: var(--gap);
 }
 
 footer {
-    position: fixed;
-    bottom: 0;
-    left: 0;
     width: 100%;
-    height: 100px;
+    padding: var(--gap);
     display: flex;
     justify-content: center;
     align-items: center;
+}
+
+.sentense {
+    display: flex;
+    flex-direction: column;
+    gap: var(--gap);
+    padding: var(--gap);
 }
