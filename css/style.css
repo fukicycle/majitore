@@ -1,513 +1,73 @@
-/* reset */
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
-
+/* Custom styles and Tailwind theme overrides */
 :root {
-    --primary-color: #F2F2F2;
-    --accent-color: #EB5B00;
-    --primary-font-color: #1A1A1A;
-    --accent-font-color: #F2F2F2;
-    --primary-shadow: rgba(0, 0, 0, .25);
-    --gap: clamp(4px, 10vh, 8px);
-    --gap-2: clamp(8px, 10vh, 16px);
-    --default-font: "Noto Sans JP";
-}
-
-/* element style */
-.btn {
-    border: none;
-    border-radius: 8px;
-    box-shadow: 0 4px 8px var(--primary-shadow);
-    background-color: var(--accent-color);
-    color: var(--accent-font-color)!important;
-    font-weight: 900;
-    font-family: var(--default-font);
-    font-style: normal;
-    padding: var(--gap) var(--gap-2);
-    cursor: pointer;
-    z-index: 10;
-    font-size: 1.1em;
-    text-decoration: none;
-    text-align: center;
-}
-
-.btn:active {
-    box-shadow: 0 2px 4px var(--primary-shadow);
-}
-
-.btn-icon {
-    background-color: var(--primary-color);
-    color: var(--primary-font-color);
-    display: flex;
-    flex-direction: column;
-    gap: var(--gap);
-    justify-content: center;
-    align-items: center;
-    box-shadow: none;
-    font-size: 14px;
-}
-
-.btn-icon {
-    box-shadow: none;
-}
-
-a {
-    color: var(--primary-font-color);
-}
-
-a:visited {
-    color: var(--primary-font-color);
-}
-
-/* html style */
-
-html {
-    background-color: #F2F2F2;
-    height: 100%;
-    font-size: 16px;
+    --primary-blue: #2563eb; /* Cobalt Blue */
+    --secondary-green: #10b981; /* Emerald Green */
+    --accent-orange: #f59e0b; /* Amber */
+    --text-dark: #1f2937; /* Gray 900 */
+    --text-light: #4b5563; /* Gray 600 */
+    --bg-light: #f9fafb; /* Gray 50 */
+    --bg-white: #ffffff;
 }
 
 body {
-    height: 100%;
-    display: flex;
-    flex-direction: column;
+    font-family: 'Inter', sans-serif;
+    color: var(--text-dark);
+    background-color: var(--bg-light);
 }
 
-h1 {
-    font-size: 1.8em;
-    font-weight: 900;
+.btn-primary {
+    @apply bg-primary-blue text-white font-bold py-3 px-6 rounded-lg shadow-lg hover:bg-blue-700 transition duration-300 ease-in-out transform hover:scale-105;
 }
 
-h2 {
-    font-size: 1.6em;
-    font-weight: 900;
+.btn-secondary {
+    @apply bg-secondary-green text-white font-bold py-3 px-6 rounded-lg shadow-lg hover:bg-green-700 transition duration-300 ease-in-out transform hover:scale-105;
 }
 
-h3 {
-    font-size: 1.3em;
-    font-weight: 900;
+.btn-outline {
+    @apply border-2 border-white text-white font-bold py-3 px-6 rounded-lg hover:bg-white hover:text-primary-blue transition duration-300 ease-in-out transform hover:scale-105;
 }
 
-h4 {
-    font-size: 1.1em;
-    font-weight: 900;
+.section-title {
+    @apply text-4xl md:text-5xl font-extrabold text-center mb-12 text-primary-blue leading-tight;
 }
-
-header {
-    background-color: #F2F2F2;
-    box-shadow: 0 4px 8px var(--primary-shadow);
-    min-height: 80px;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 0 20px;
-    position: sticky;
-    top: 0;
-    left: 0;
-    width: 100%;
-    z-index: 100;
-}
-
-main {
-    padding: var(--gap);
-    flex: 1;
-    overflow: auto;
-}
-
-.text-center {
-    text-align: center;
-}
-
-.wrapper {
-    margin: auto;
-    max-width: 1200px;
-    width: 100%;
-}
-
-.title {
-    font-size: 1.6em;
-    font-weight: 900;
-}
-
-nav {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: var(--gap);
-}
-
-.menu {
-    text-decoration: none;
-}
-
-.menu.active {
-    text-decoration: underline;
-    color: var(--accent-color);
-}
-
-.menu>svg {
-    display: none;
-}
-
-footer {
-    width: 100%;
-    padding: var(--gap);
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    font-size: 14px;
-}
-
-.sentense {
-    display: flex;
-    flex-direction: column;
-    gap: var(--gap);
-    padding: var(--gap);
-}
-
 
 .card {
-    width: 100%;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-    box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.1);
-    background-color: var(--primary-color);
-    overflow: hidden;
-    transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
-    cursor: pointer;
+    @apply bg-white rounded-xl shadow-lg p-8 transform transition duration-300 hover:scale-105 hover:shadow-2xl;
 }
 
-.card:hover {
-    transform: translateY(-5px);
-    /* 少し持ち上げる */
-    box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.2);
-}
-
-.card-body {
-    padding: 15px;
-}
-
-.card-title {
-    font-size: 1.2em;
-    margin-bottom: 10px;
-}
-
-.card-text {
-    color: var(--primary-font-color);
-    line-height: 1.5;
-}
-
-.card-image {
-    width: 100%;
-    height: auto;
-    object-fit: cover;
-    max-height: 240px;
-    display: block;
-    /* 画像下の余白をなくす */
-}
-
-.kome {
-    font-size: 16px;
-}
-
-.note-and-text {
-    display: flex;
-    gap: var(--gap);
-}
-
-.note-and-text>* {
-    display: block;
-}
-
-.icon-label {
-    cursor: pointer;
-    /* アイコンのスタイル */
-}
-
-.dialog-wrapper {
-    position: fixed;
+/* Responsive adjustments for images and videos */
+/* main-visual-container はセクション全体を覆うように変更 */
+.main-visual-container {
+    position: absolute; /* 親要素に対して絶対配置 */
     top: 0;
     left: 0;
     width: 100%;
     height: 100%;
-    visibility: hidden;
-    /* ダイアログの基本的なスタイル（非表示） */
-    opacity: 0;
-    transition: opacity 0.3s ease-in-out, visibility 0.3s ease-in-out;
-    /* その他のスタイル */
-    background-color: rgba(242, 242, 242, .9);
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    z-index: 1000;
-    padding: var(--gap-2);
-    padding-bottom: 70px;
-    padding-top: 80px;
-
-}
-
-.dialog {
-    display: flex;
-    flex-direction: column;
-    gap: var(--gap);
-    z-index: 1200;
-    box-shadow: 0 4px 8px var(--primary-shadow);
-    padding: var(--gap-2);
-    border-radius: var(--gap);
-    background-color: var(--primary-color);
-    overflow: auto;
-    max-height: 98%;
-}
-
-.dialog-footer {
-    text-align: center;
-}
-
-.dialog-switch:checked~.dialog-wrapper {
-    opacity: 1;
-    visibility: visible;
-}
-
-#dialog-ichinomiya:checked~.dialog-wrapper-ichinomiya {
-    opacity: 1;
-    visibility: visible;
-}
-
-#dialog-toyoake:checked~.dialog-wrapper-toyoake {
-    opacity: 1;
-    visibility: visible;
-}
-
-#dialog-seto:checked~.dialog-wrapper-seto {
-    opacity: 1;
-    visibility: visible;
-}
-
-.dialog-xl {
-    min-width: 720px;
-}
-
-iframe {
-    width: 100%;
-    height: 25vh;
-}
-
-/* テーブルデザイン */
-
-.table-wrapper {
-    padding: var(--gap);
-}
-
-table {
-    width: 100%;
-    border-collapse: collapse;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.05);
-    border-radius: 8px;
     overflow: hidden;
-    background-color: #fff;
+    z-index: 0; /* 最背面 */
 }
 
-th,
-td {
-    padding: 12px 15px;
-    text-align: left;
+.main-visual-container img,
+.main-visual-container video {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* コンテナに合わせて画像をトリミング */
 }
 
-th {
-    background-color: #f8f8f8;
-    font-weight: bold;
-    color: #333;
-}
-
-tbody tr {
-    border-bottom: 1px solid #eee;
-}
-
-tbody tr:last-child {
-    border-bottom: none;
-}
-
-tbody tr:hover {
-    background-color: #f2f2f2;
-}
-
-/* index.html (Home) */
-.main-home {
-    position: relative;
-    background-image: url("../imgs/main-bg.jpg");
-    background-repeat: no-repeat;
-    background-size: cover;
-    background-position: center;
-}
-
-.main-home::before{
+/* オーバーレイのスタイル */
+.main-visual-overlay {
     position: absolute;
     top: 0;
     left: 0;
     width: 100%;
     height: 100%;
-    content: "";
-    background-color: rgba(242, 242, 242, 0.7); 
-    backdrop-filter: blur(5px);
-    -webkit-backdrop-filter: blur(5px);
-    z-index: 1;
+    background-color: rgba(255, 255, 255, 0.3); /* 半透明の白 */
+    backdrop-filter: blur(3px); /* ブラー効果 */
+    -webkit-backdrop-filter: blur(3px); /* Safari対応 */
+    z-index: 1; /* 画像より手前 */
 }
 
-.home {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-direction: column;
-    gap: var(--gap-2);
-    height: 100%;
-    max-width: 700px;
-    margin: auto;
-    z-index: 100;
-}
-
-.home > a {
-    width: 220px;
-}
-
-.home > h1 {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    z-index: 100;
-}
-
-/* details.html */
-.detail-item {
-    padding: var(--gap-2);
-    display: grid;
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-    grid-auto-rows: auto;
-    grid-gap: var(--gap-2);
-}
-
-.multiple {
-    display: flex;
-    flex-direction: column;
-}
-
-.place-details {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-}
-
-.day-of-week {
-    box-shadow: 0 2px 4px var(--primary-shadow);
-    font-size: 24px;
-    width: 48px;
-    aspect-ratio: 1;
-    border-radius: 50%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    color: var(--primary-color);
-    background-color: var(--accent-color);
-}
-
-
-/* 画面幅が768px以下の場合に適用されるスタイル */
-@media screen and (max-width: 768px) {
-    main {
-        padding-bottom: calc(70px + var(--gap));
-    }
-
-    header>nav {
-        position: fixed;
-        bottom: 0;
-        left: 0;
-        font-size: 9px;
-        width: 100%;
-        background-color: var(--primary-color);
-        box-shadow: 0 4px 8px var(--primary-shadow);
-        justify-content: space-evenly;
-        height: 70px;
-    }
-
-    header {
-        justify-content: center;
-    }
-
-    footer {
-        display: none;
-    }
-
-    .menu {
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        align-items: center;
-        gap: var(--gap);
-        text-decoration: none;
-    }
-
-    .menu:visited {
-        color: var(--primary-font-color);
-    }
-
-    .menu>svg {
-        display: block;
-    }
-
-    .menu.active {
-        color: var(--accent-color);
-        text-decoration: none;
-    }
-
-    .menu>svg {
-        fill: var(--primary-font-color);
-    }
-
-    .menu.active>svg {
-        fill: var(--accent-color);
-    }
-
-    .dialog-xl {
-        min-width: 0;
-        width: 100%;
-    }
-
-
-    /* details.html (detail) */
-    .detail-item {
-        display: flex;
-        flex-direction: column;
-        gap: var(--gap-2);
-    }
-
-}
-
-/* animation */
-.fade-in {
-    opacity: 0;
-    animation: fadeIn 1.5s ease-in-out forwards;
-    /* アニメーション名、再生時間、タイミング関数、最終状態を維持 */
-}
-
-.fade-in-fast {
-    opacity: 0;
-    animation: fadeIn 0.5s ease-in-out forwards;
-}
-
-
-.fade-in-second {
-    opacity: 0;
-    animation: fadeIn 1.5s ease-in-out 1.5s forwards;
-}
-
-@keyframes fadeIn {
-    0% {
-        opacity: 0;
-    }
-
-    100% {
-        opacity: 1;
-    }
+/* Smooth scrolling for anchor links */
+html {
+    scroll-behavior: smooth;
 }

@@ -1,93 +1,557 @@
 <!DOCTYPE html>
 <html lang="ja">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="愛知県のサッカー教室をやっている「まじトレ」。子供の闘争心を高め、何事にも挑戦できる選手を育てます。" />
-    <meta name="keywords" content="まじトレ, 愛知県, サッカー教室, 集中力, 闘争心" />
-    <meta name="robots" content="index, follow" />
-    <meta property="og:title" content="まじトレ">
-
-    <!-- OGP -->
-    <meta property="og:description" content="まじトレの公式HPです！">
-    <!-- <meta property="og:image" content="https://example.com/image.jpg"> -->
-    <!-- <meta property="og:url" content="https://example.com/"> -->
-    <meta property="og:type" content="website">
-    <meta property="og:site_name" content="まじトレ公式HP">
     <title>まじトレ</title>
-    <link rel="stylesheet" href="css/style.css" />
-    <link rel="stylesheet" href="css/font.css" />
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@100..900&display=swap" rel="stylesheet">
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Google Fonts - Inter -->
+    <link href="css/style.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
 </head>
+<body class="bg-gray-50 text-gray-900">
 
-<body class="default-font">
-    <header>
-        <div class="title">まじトレ</div>
-        <nav>
-            <a class="menu active" href="index.html">
-                <svg width="36" height="36" viewBox="0 0 36 36" fill="none" xmlns="http://www.w3.org/2000/svg">
-                    <path fill-rule="evenodd" clip-rule="evenodd"
-                        d="M18.675 7.35452C18.4803 7.20847 18.2434 7.12952 18 7.12952C17.7566 7.12952 17.5197 7.20847 17.325 7.35452L7.575 14.667C7.43528 14.7718 7.32188 14.9077 7.24377 15.0639C7.16566 15.2201 7.125 15.3924 7.125 15.567V27.75C7.125 28.371 7.629 28.875 8.25 28.875H13.5V25.5C13.5 24.3065 13.9741 23.1619 14.818 22.318C15.6619 21.4741 16.8065 21 18 21C19.1935 21 20.3381 21.4741 21.182 22.318C22.0259 23.1619 22.5 24.3065 22.5 25.5V28.875H27.75C28.0484 28.875 28.3345 28.7565 28.5455 28.5455C28.7565 28.3345 28.875 28.0484 28.875 27.75V15.567C28.875 15.3924 28.8343 15.2201 28.7562 15.0639C28.6781 14.9077 28.5647 14.7718 28.425 14.667L18.675 7.35452ZM15.975 5.55452C17.175 4.65452 18.825 4.65452 20.025 5.55452L29.775 12.867C30.6255 13.5045 31.125 14.505 31.125 15.567V27.75C31.125 28.6451 30.7694 29.5036 30.1365 30.1365C29.5035 30.7694 28.6451 31.125 27.75 31.125H21.375C21.0766 31.125 20.7905 31.0065 20.5795 30.7955C20.3685 30.5845 20.25 30.2984 20.25 30V25.5C20.25 24.9033 20.0129 24.331 19.591 23.909C19.169 23.4871 18.5967 23.25 18 23.25C17.4033 23.25 16.831 23.4871 16.409 23.909C15.9871 24.331 15.75 24.9033 15.75 25.5V30C15.75 30.2984 15.6315 30.5845 15.4205 30.7955C15.2095 31.0065 14.9234 31.125 14.625 31.125H8.25C7.35489 31.125 6.49645 30.7694 5.86351 30.1365C5.23058 29.5036 4.875 28.6451 4.875 27.75V15.567C4.875 14.505 5.3745 13.5045 6.225 12.867L15.975 5.55452Z" />
-                </svg>
-                <span>ホーム</span>
-            </a>
-            <a class="menu" href="details.html">
-                <svg width="36" height="35" viewBox="0 0 36 35" fill="none" xmlns="http://www.w3.org/2000/svg">
-                    <path
-                        d="M6.22218 6.92712C5.74484 6.92712 5.28705 7.11918 4.94952 7.46104C4.61199 7.80291 4.42236 8.26657 4.42236 8.75004C4.42236 9.23351 4.61199 9.69717 4.94952 10.039C5.28705 10.3809 5.74484 10.573 6.22218 10.573H6.23658C6.71392 10.573 7.17171 10.3809 7.50924 10.039C7.84677 9.69717 8.03639 9.23351 8.03639 8.75004C8.03639 8.26657 7.84677 7.80291 7.50924 7.46104C7.17171 7.11918 6.71392 6.92712 6.23658 6.92712H6.22218ZM11.9672 7.65629C11.6808 7.65629 11.4061 7.77152 11.2036 7.97664C11.0011 8.18176 10.8873 8.45996 10.8873 8.75004C10.8873 9.04012 11.0011 9.31832 11.2036 9.52344C11.4061 9.72856 11.6808 9.84379 11.9672 9.84379H29.2454C29.5318 9.84379 29.8065 9.72856 30.009 9.52344C30.2115 9.31832 30.3253 9.04012 30.3253 8.75004C30.3253 8.45996 30.2115 8.18176 30.009 7.97664C29.8065 7.77152 29.5318 7.65629 29.2454 7.65629H11.9672ZM11.9672 25.1563C11.6808 25.1563 11.4061 25.2715 11.2036 25.4766C11.0011 25.6818 10.8873 25.96 10.8873 26.25C10.8873 26.5401 11.0011 26.8183 11.2036 27.0234C11.4061 27.2286 11.6808 27.3438 11.9672 27.3438H29.2454C29.5318 27.3438 29.8065 27.2286 30.009 27.0234C30.2115 26.8183 30.3253 26.5401 30.3253 26.25C30.3253 25.96 30.2115 25.6818 30.009 25.4766C29.8065 25.2715 29.5318 25.1563 29.2454 25.1563H11.9672ZM10.8873 17.5C10.8873 17.21 11.0011 16.9318 11.2036 16.7266C11.4061 16.5215 11.6808 16.4063 11.9672 16.4063H29.2454C29.5318 16.4063 29.8065 16.5215 30.009 16.7266C30.2115 16.9318 30.3253 17.21 30.3253 17.5C30.3253 17.7901 30.2115 18.0683 30.009 18.2734C29.8065 18.4786 29.5318 18.5938 29.2454 18.5938H11.9672C11.6808 18.5938 11.4061 18.4786 11.2036 18.2734C11.0011 18.0683 10.8873 17.7901 10.8873 17.5ZM4.42236 17.5C4.42236 16.4938 5.22868 15.6771 6.22218 15.6771H6.23658C6.71392 15.6771 7.17171 15.8692 7.50924 16.211C7.84677 16.5529 8.03639 17.0166 8.03639 17.5C8.03639 17.9835 7.84677 18.4472 7.50924 18.789C7.17171 19.1309 6.71392 19.323 6.23658 19.323H6.22218C5.22868 19.323 4.42236 18.5063 4.42236 17.5ZM6.22218 24.4271C5.74484 24.4271 5.28705 24.6192 4.94952 24.961C4.61199 25.3029 4.42236 25.7666 4.42236 26.25C4.42236 26.7335 4.61199 27.1972 4.94952 27.539C5.28705 27.8809 5.74484 28.073 6.22218 28.073H6.23658C6.71392 28.073 7.17171 27.8809 7.50924 27.539C7.84677 27.1972 8.03639 26.7335 8.03639 26.25C8.03639 25.7666 7.84677 25.3029 7.50924 24.961C7.17171 24.6192 6.71392 24.4271 6.23658 24.4271H6.22218Z" />
-                </svg>
-                <span>詳細</span>
-            </a>
-            <a class="menu" href="event.html">
-                <svg width="36" height="36" viewBox="0 0 36 36" fill="none" xmlns="http://www.w3.org/2000/svg">
-                    <path
-                        d="M10.7773 19.125C10.7773 18.8068 10.9038 18.5016 11.1288 18.2765C11.3539 18.0515 11.6591 17.925 11.9773 17.925H11.9923C12.3106 17.925 12.6158 18.0515 12.8409 18.2765C13.0659 18.5016 13.1923 18.8068 13.1923 19.125C13.1923 19.4433 13.0659 19.7485 12.8409 19.9736C12.6158 20.1986 12.3106 20.325 11.9923 20.325H11.9773C11.8198 20.325 11.6637 20.294 11.5181 20.2337C11.3725 20.1734 11.2402 20.085 11.1288 19.9736C11.0174 19.8621 10.929 19.7299 10.8687 19.5843C10.8084 19.4387 10.7773 19.2826 10.7773 19.125ZM11.9773 23.925C11.6591 23.925 11.3539 24.0515 11.1288 24.2765C10.9038 24.5016 10.7773 24.8068 10.7773 25.125C10.7773 25.4433 10.9038 25.7485 11.1288 25.9736C11.3539 26.1986 11.6591 26.325 11.9773 26.325H11.9923C12.3106 26.325 12.6158 26.1986 12.8409 25.9736C13.0659 25.7485 13.1923 25.4433 13.1923 25.125C13.1923 24.8068 13.0659 24.5016 12.8409 24.2765C12.6158 24.0515 12.3106 23.925 11.9923 23.925H11.9773ZM16.7923 19.125C16.7923 18.8068 16.9188 18.5016 17.1438 18.2765C17.3689 18.0515 17.6741 17.925 17.9923 17.925H18.0073C18.3256 17.925 18.6308 18.0515 18.8559 18.2765C19.0809 18.5016 19.2073 18.8068 19.2073 19.125C19.2073 19.4433 19.0809 19.7485 18.8559 19.9736C18.6308 20.1986 18.3256 20.325 18.0073 20.325H17.9923C17.8348 20.325 17.6787 20.294 17.5331 20.2337C17.3875 20.1734 17.2552 20.085 17.1438 19.9736C17.0324 19.8621 16.944 19.7299 16.8837 19.5843C16.8234 19.4387 16.7923 19.2826 16.7923 19.125ZM17.9923 23.925C17.6741 23.925 17.3689 24.0515 17.1438 24.2765C16.9188 24.5016 16.7923 24.8068 16.7923 25.125C16.7923 25.4433 16.9188 25.7485 17.1438 25.9736C17.3689 26.1986 17.6741 26.325 17.9923 26.325H18.0073C18.3256 26.325 18.6308 26.1986 18.8559 25.9736C19.0809 25.7485 19.2073 25.4433 19.2073 25.125C19.2073 24.8068 19.0809 24.5016 18.8559 24.2765C18.6308 24.0515 18.3256 23.925 18.0073 23.925H17.9923ZM22.8073 19.125C22.8073 18.8068 22.9338 18.5016 23.1588 18.2765C23.3839 18.0515 23.6891 17.925 24.0073 17.925H24.0223C24.3406 17.925 24.6458 18.0515 24.8709 18.2765C25.0959 18.5016 25.2223 18.8068 25.2223 19.125C25.2223 19.4433 25.0959 19.7485 24.8709 19.9736C24.6458 20.1986 24.3406 20.325 24.0223 20.325H24.0073C23.8498 20.325 23.6937 20.294 23.5481 20.2337C23.4025 20.1734 23.2702 20.085 23.1588 19.9736C23.0474 19.8621 22.959 19.7299 22.8987 19.5843C22.8384 19.4387 22.8073 19.2826 22.8073 19.125ZM24.0073 23.925C23.6891 23.925 23.3839 24.0515 23.1588 24.2765C22.9338 24.5016 22.8073 24.8068 22.8073 25.125C22.8073 25.4433 22.9338 25.7485 23.1588 25.9736C23.3839 26.1986 23.6891 26.325 24.0073 26.325H24.0223C24.3406 26.325 24.6458 26.1986 24.8709 25.9736C25.0959 25.7485 25.2223 25.4433 25.2223 25.125C25.2223 24.8068 25.0959 24.5016 24.8709 24.2765C24.6458 24.0515 24.3406 23.925 24.0223 23.925H24.0073Z" />
-                    <path
-                        d="M13.125 4.125C13.125 3.82663 13.0065 3.54048 12.7955 3.3295C12.5845 3.11853 12.2984 3 12 3C11.7016 3 11.4155 3.11853 11.2045 3.3295C10.9935 3.54048 10.875 3.82663 10.875 4.125V5.625H8.25C7.35489 5.625 6.49645 5.98058 5.86351 6.61351C5.23058 7.24645 4.875 8.10489 4.875 9V28.5C4.875 29.3951 5.23058 30.2535 5.86351 30.8865C6.49645 31.5194 7.35489 31.875 8.25 31.875H27.75C28.6451 31.875 29.5035 31.5194 30.1365 30.8865C30.7694 30.2535 31.125 29.3951 31.125 28.5V9C31.125 8.10489 30.7694 7.24645 30.1365 6.61351C29.5035 5.98058 28.6451 5.625 27.75 5.625H25.125V4.125C25.125 3.82663 25.0065 3.54048 24.7955 3.3295C24.5845 3.11853 24.2984 3 24 3C23.7016 3 23.4155 3.11853 23.2045 3.3295C22.9935 3.54048 22.875 3.82663 22.875 4.125V5.625H13.125V4.125ZM28.875 12.375H7.125V9C7.125 8.70163 7.24353 8.41548 7.4545 8.2045C7.66548 7.99353 7.95163 7.875 8.25 7.875H27.75C28.0484 7.875 28.3345 7.99353 28.5455 8.2045C28.7565 8.41548 28.875 8.70163 28.875 9V12.375ZM7.125 14.625H28.875V28.5C28.875 28.7984 28.7565 29.0845 28.5455 29.2955C28.3345 29.5065 28.0484 29.625 27.75 29.625H8.25C7.95163 29.625 7.66548 29.5065 7.4545 29.2955C7.24353 29.0845 7.125 28.7984 7.125 28.5V14.625Z" />
-                </svg>
-                <span>イベント</span>
-            </a>
-            <a class="menu" href="question.html">
-                <svg width="36" height="36" viewBox="0 0 36 36" fill="none" xmlns="http://www.w3.org/2000/svg">
-                    <path
-                        d="M16.3799 15.657C16.38 15.3786 16.4518 15.1048 16.5885 14.8622C16.7252 14.6196 16.9222 14.4163 17.1603 14.272C17.3985 14.1277 17.6698 14.0472 17.9482 14.0383C18.2265 14.0294 18.5024 14.0924 18.7493 14.2212C18.9962 14.3501 19.2057 14.5404 19.3576 14.7737C19.5095 15.0071 19.5987 15.2757 19.6166 15.5536C19.6344 15.8315 19.5803 16.1094 19.4595 16.3603C19.3387 16.6112 19.1553 16.8267 18.9269 16.986C18.5219 17.271 18.0299 17.649 17.6369 18.126C17.2364 18.609 16.8749 19.2645 16.8749 20.076C16.8749 20.3744 16.9934 20.6606 17.2044 20.8715C17.4154 21.0825 17.7015 21.201 17.9999 21.201C18.2983 21.201 18.5844 21.0825 18.7954 20.8715C19.0064 20.6606 19.1249 20.3744 19.1249 20.076C19.1249 19.9635 19.1699 19.8 19.3679 19.5615C19.6192 19.2826 19.9044 19.0362 20.2169 18.828C20.7621 18.447 21.1999 17.9318 21.488 17.3322C21.7762 16.7327 21.9049 16.0689 21.8617 15.4051C21.8186 14.7413 21.6051 14.0999 21.2419 13.5426C20.8786 12.9854 20.3778 12.5311 19.7879 12.2238C19.1979 11.9165 18.5387 11.7664 17.8739 11.7881C17.209 11.8097 16.561 12.0024 15.9923 12.3475C15.4236 12.6926 14.9534 13.1784 14.6272 13.7581C14.301 14.3378 14.1297 14.9918 14.1299 15.657C14.1299 15.9554 14.2484 16.2416 14.4594 16.4525C14.6704 16.6635 14.9565 16.782 15.2549 16.782C15.5533 16.782 15.8394 16.6635 16.0504 16.4525C16.2614 16.2416 16.3799 15.9554 16.3799 15.657ZM17.9999 21.963C17.7015 21.963 17.4154 22.0816 17.2044 22.2925C16.9934 22.5035 16.8749 22.7897 16.8749 23.088C16.8749 23.3864 16.9934 23.6726 17.2044 23.8835C17.4154 24.0945 17.7015 24.213 17.9999 24.213C18.2983 24.213 18.5844 24.0945 18.7954 23.8835C19.0064 23.6726 19.1249 23.3864 19.1249 23.088C19.1249 22.7897 19.0064 22.5035 18.7954 22.2925C18.5844 22.0816 18.2983 21.963 17.9999 21.963Z" />
-                    <path fill-rule="evenodd" clip-rule="evenodd"
-                        d="M18 3C9.7155 3 3 9.7155 3 18C3 26.2845 9.7155 33 18 33C26.2845 33 33 26.2845 33 18C33 9.7155 26.2845 3 18 3ZM5.25 18C5.25 14.6185 6.5933 11.3755 8.98439 8.98439C11.3755 6.5933 14.6185 5.25 18 5.25C21.3815 5.25 24.6245 6.5933 27.0156 8.98439C29.4067 11.3755 30.75 14.6185 30.75 18C30.75 21.3815 29.4067 24.6245 27.0156 27.0156C24.6245 29.4067 21.3815 30.75 18 30.75C14.6185 30.75 11.3755 29.4067 8.98439 27.0156C6.5933 24.6245 5.25 21.3815 5.25 18Z" />
-                </svg>
-                <span>Q&A</span>
-            </a>
-            <a class="menu" href="coach.html">
-                <svg width="36" height="36" viewBox="0 0 36 36" fill="none" xmlns="http://www.w3.org/2000/svg">
-                    <path
-                        d="M15 13.8495C15 13.3522 14.8025 12.8753 14.4508 12.5237C14.0992 12.172 13.6223 11.9745 13.125 11.9745C12.6277 11.9745 12.1508 12.172 11.7992 12.5237C11.4475 12.8753 11.25 13.3522 11.25 13.8495C11.25 14.3468 11.4475 14.8237 11.7992 15.1753C12.1508 15.5269 12.6277 15.7245 13.125 15.7245C13.6223 15.7245 14.0992 15.5269 14.4508 15.1753C14.8025 14.8237 15 14.3468 15 13.8495ZM22.875 11.9745C23.1212 11.9745 23.365 12.023 23.5925 12.1172C23.82 12.2114 24.0267 12.3496 24.2008 12.5237C24.3749 12.6978 24.513 12.9045 24.6073 13.132C24.7015 13.3594 24.75 13.6033 24.75 13.8495C24.75 14.0957 24.7015 14.3395 24.6073 14.567C24.513 14.7945 24.3749 15.0012 24.2008 15.1753C24.0267 15.3494 23.82 15.4875 23.5925 15.5818C23.365 15.676 23.1212 15.7245 22.875 15.7245C22.3777 15.7245 21.9008 15.5269 21.5492 15.1753C21.1975 14.8237 21 14.3468 21 13.8495C21 13.3522 21.1975 12.8753 21.5492 12.5237C21.9008 12.172 22.3777 11.9745 22.875 11.9745Z" />
-                    <path fill-rule="evenodd" clip-rule="evenodd"
-                        d="M10.2256 19.5916C10.0684 19.5914 9.91295 19.6242 9.76922 19.6878C9.6255 19.7515 9.49669 19.8445 9.39112 19.961C9.28556 20.0774 9.20556 20.2147 9.15629 20.3639C9.10703 20.5132 9.08959 20.6711 9.1051 20.8276C9.4651 24.4546 12.7951 28.1596 18.0001 28.1596C23.2051 28.1596 26.5351 24.4546 26.8951 20.8276C26.9106 20.6711 26.8932 20.5132 26.8439 20.3639C26.7946 20.2147 26.7146 20.0774 26.6091 19.961C26.5035 19.8445 26.3747 19.7515 26.231 19.6878C26.0872 19.6242 25.9318 19.5914 25.7746 19.5916H10.2256ZM18.0001 25.9096C14.6131 25.9096 12.4126 23.9326 11.6356 21.8416H24.3646C23.5876 23.9326 21.3871 25.9096 18.0001 25.9096Z" />
-                    <path fill-rule="evenodd" clip-rule="evenodd"
-                        d="M18 3C9.7155 3 3 9.7155 3 18C3 26.2845 9.7155 33 18 33C26.2845 33 33 26.2845 33 18C33 9.7155 26.2845 3 18 3ZM5.25 18C5.25 14.6185 6.5933 11.3755 8.98439 8.98439C11.3755 6.5933 14.6185 5.25 18 5.25C21.3815 5.25 24.6245 6.5933 27.0156 8.98439C29.4067 11.3755 30.75 14.6185 30.75 18C30.75 21.3815 29.4067 24.6245 27.0156 27.0156C24.6245 29.4067 21.3815 30.75 18 30.75C14.6185 30.75 11.3755 29.4067 8.98439 27.0156C6.5933 24.6245 5.25 21.3815 5.25 18Z" />
-                </svg>
-                <span>コーチ</span>
-            </a>
+    <!-- Header & Navigation -->
+    <header class="bg-white shadow-md py-4 sticky top-0 z-50">
+        <div class="container mx-auto flex justify-between items-center px-4">
+            <a href="#home" class="text-2xl font-bold text-primary-blue">まじトレ</a>
+            <nav class="hidden md:block">
+                <ul class="flex space-x-6">
+                    <li><a href="#home" class="text-gray-600 hover:text-primary-blue font-semibold">トップ</a></li>
+                    <li><a href="#features" class="text-gray-600 hover:text-primary-blue font-semibold">特徴</a></li>
+                    <li><a href="#schools" class="text-gray-600 hover:text-primary-blue font-semibold">スクール</a></li>
+                    <li><a href="#flow" class="text-gray-600 hover:text-primary-blue font-semibold">体験・入会</a></li>
+                    <li><a href="#results" class="text-gray-600 hover:text-primary-blue font-semibold">成果・声</a></li>
+                    <li><a href="#events" class="text-gray-600 hover:text-primary-blue font-semibold">イベント</a></li>
+                    <li><a href="#coaches" class="text-gray-600 hover:text-primary-blue font-semibold">指導者</a></li>
+                    <li><a href="#contact" class="text-gray-600 hover:text-primary-blue font-semibold">お問い合わせ</a></li>
+                </ul>
+            </nav>
+            <!-- Mobile Menu Button (Hamburger) - Added id for JavaScript -->
+            <button id="mobile-menu-button" class="md:hidden text-gray-600 focus:outline-none">
+                <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path></svg>
+            </button>
+        </div>
+        <!-- Mobile Menu - Added for responsiveness -->
+        <nav id="mobile-menu" class="md:hidden hidden bg-white shadow-lg py-2">
+            <ul class="flex flex-col items-center space-y-4 py-4">
+                <li><a href="#home" class="text-gray-600 hover:text-primary-blue font-semibold text-lg py-2 block w-full text-center">トップ</a></li>
+                <li><a href="#features" class="text-gray-600 hover:text-primary-blue font-semibold text-lg py-2 block w-full text-center">特徴</a></li>
+                <li><a href="#schools" class="text-gray-600 hover:text-primary-blue font-semibold text-lg py-2 block w-full text-center">スクール</a></li>
+                <li><a href="#flow" class="text-gray-600 hover:text-primary-blue font-semibold text-lg py-2 block w-full text-center">体験・入会</a></li>
+                <li><a href="#results" class="text-gray-600 hover:text-primary-blue font-semibold text-lg py-2 block w-full text-center">成果・声</a></li>
+                <li><a href="#events" class="text-gray-600 hover:text-primary-blue font-semibold text-lg py-2 block w-full text-center">イベント</a></li>
+                <li><a href="#coaches" class="text-gray-600 hover:text-primary-blue font-semibold text-lg py-2 block w-full text-center">指導者</a></li>
+                <li><a href="#contact" class="text-gray-600 hover:text-primary-blue font-semibold text-lg py-2 block w-full text-center">お問い合わせ</a></li>
+            </ul>
         </nav>
     </header>
-    <main class="main-home">
-        <div class="home">
-            <h1 class="fade-in text-center">
-                <span>“まじ”</span>
-                <span>で上手くなりたい君へ。</span>
-                <span>本気のサッカー環境、</span>
-                <span>ここにある</span>
-            </h1>
-            <a href="" target="_blank" class="btn">無料体験に申し込む</a>
-            <a href="" target="_blank" class="btn">LINEで質問する</a>
-            <a href="details.html" class="btn">スクールの特徴を見る</a>
-        </div>
-    </main>
-    <footer>
-        <div>&copy; 2025 まじトレ</div>
-    </footer>
-</body>
 
+    <!-- Main Content -->
+    <main>
+        <!-- 🏠 トップページ (Home) -->
+        <section id="home" class="relative bg-gradient-to-r from-primary-blue to-blue-700 text-white min-h-screen flex items-center justify-center py-20 md:py-32 overflow-hidden">
+            <!-- メインビジュアルコンテナ -->
+            <div class="main-visual-container">
+                <!-- 写真の場合 -->
+                <img src="imgs/main-bg.jpg" alt="サッカーのメインビジュアル" class="w-full h-full object-cover">
+                <!-- 動画の場合 (コメントアウトを解除して使用) -->
+                <!-- <video autoplay loop muted playsinline class="w-full h-full object-cover">
+                    <source src="your-soccer-video.mp4" type="video/mp4">
+                    Your browser does not support the video tag.
+                </video> -->
+                <!-- メインビジュアルのオーバーレイ -->
+                <div class="main-visual-overlay"></div>
+            </div>
+
+            <!-- テキストコンテンツとボタン -->
+            <div class="container mx-auto text-center px-4 relative z-10">
+                <h1 class="text-4xl md:text-6xl font-extrabold leading-tight mb-6 drop-shadow-lg">
+                    “まじ”で上手くなりたい君へ。<br>本気のサッカー環境、ここにある
+                </h1>
+                <p class="text-lg md:text-xl mb-10 max-w-2xl mx-auto opacity-90">
+                    本気でサッカーと向き合い、個の能力を最大限に引き出す指導で、<br class="hidden md:inline">未来の可能性を広げます。
+                </p>
+                <div class="flex flex-col md:flex-row justify-center items-center space-y-4 md:space-y-0 md:space-x-6">
+                    <a href="#flow" class="btn-secondary">✅ 無料体験に申し込む</a>
+                    <a href="https://line.me/R/ti/p/@your_line_id" target="_blank" class="btn-outline">✅ LINEで質問する</a>
+                    <a href="#features" class="btn-outline">✅ スクールの特徴を見る</a>
+                </div>
+            </div>
+        </section>
+
+        <!-- 📌 スクールの特徴 (Features) -->
+        <section id="features" class="py-16 md:py-24 bg-white">
+            <div class="container mx-auto px-4">
+                <h2 class="section-title">スクールの特徴</h2>
+                <div class="max-w-4xl mx-auto text-center mb-12">
+                    <p class="text-xl text-gray-700 leading-relaxed">
+                        まじトレサッカースクールでは、「個人を伸ばす」指導コンセプトを掲げ、<br class="hidden md:inline">
+                        一人ひとりの成長に徹底的に向き合います。
+                    </p>
+                </div>
+
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-8 mt-12">
+                    <div class="card">
+                        <div class="text-primary-blue text-5xl mb-4 text-center">⚽</div>
+                        <h3 class="text-2xl font-bold mb-4 text-center">少人数制指導</h3>
+                        <p class="text-gray-600 text-center">
+                            きめ細やかな指導を可能にする少人数制。コーチが一人ひとりの個性と課題を深く理解し、的確なアドバイスを送ります。
+                        </p>
+                    </div>
+                    <div class="card">
+                        <div class="text-primary-blue text-5xl mb-4 text-center">💡</div>
+                        <h3 class="text-2xl font-bold mb-4 text-center">個別対応プログラム</h3>
+                        <p class="text-gray-600 text-center">
+                            画一的な指導ではなく、個々のレベルや目標に合わせたメニューを提供。弱点を克服し、長所をさらに伸ばします。
+                        </p>
+                    </div>
+                    <div class="card">
+                        <div class="text-primary-blue text-5xl mb-4 text-center">🗓️</div>
+                        <h3 class="text-2xl font-bold mb-4 text-center">年間を通じた成長計画</h3>
+                        <p class="text-gray-600 text-center">
+                            短期的な成果だけでなく、年間を通して計画的にスキルアップを目指します。着実な成長を実感できる環境です。
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 🏫 スクール紹介（各校） (Schools) -->
+        <section id="schools" class="py-16 md:py-24 bg-gray-50">
+            <div class="container mx-auto px-4">
+                <h2 class="section-title">スクール紹介（各校）</h2>
+
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                    <!-- 一宮校 -->
+                    <div class="card">
+                        <h3 class="text-3xl font-bold text-primary-blue mb-4 text-center">一宮校</h3>
+                        <img src="imgs/ichinomiya.png" alt="一宮校の様子" class="rounded-lg mb-6 w-full h-48 object-cover">
+                        <ul class="text-gray-700 space-y-3">
+                            <li><strong class="text-primary-blue">対象学年:</strong> 小学校1年生〜6年生</li>
+                            <li><strong class="text-primary-blue">曜日・時間:</strong> 毎週金曜日 16:00-17:30 (キッズ) / 17:30-19:00 (ジュニア)</li>
+                            <li><strong class="text-primary-blue">会場アクセス:</strong>尾西運動場グラウンド<a href="https://maps.app.goo.gl/your_ichinomiya_map_link" target="_blank" class="text-secondary-green hover:underline">(地図)</a></li>
+                            <li><strong class="text-primary-blue">料金:</strong> 月謝 ¥8,000 (税込) / 入会金 ¥5,000 (税込)</li>
+                            <li><strong class="text-primary-blue">定員:</strong> 各クラス15名</li>
+                            <li><strong class="text-primary-blue">振替制度:</strong> あり（他校または別曜日に振替可能）</li>
+                        </ul>
+                    </div>
+
+                    <!-- 瀬戸校 -->
+                    <div class="card">
+                        <h3 class="text-3xl font-bold text-primary-blue mb-4 text-center">瀬戸校</h3>
+                        <img src="imgs/seto.png" alt="瀬戸校の様子" class="rounded-lg mb-6 w-full h-48 object-cover">
+                        <ul class="text-gray-700 space-y-3">
+                            <li><strong class="text-primary-blue">対象学年:</strong> 小学校1年生〜6年生</li>
+                            <li><strong class="text-primary-blue">曜日・時間:</strong> 毎週日曜日 17:30-19:00</li>
+                            <li><strong class="text-primary-blue">会場アクセス:</strong> ウイングフットサルクラブ <a href="https://maps.app.goo.gl/your_toyoake_map_link" target="_blank" class="text-secondary-green hover:underline">(地図)</a></li>
+                            <li><strong class="text-primary-blue">料金:</strong>  月謝 ¥8,000 (税込) / 入会金 ¥5,000 (税込)</li>
+                            <li><strong class="text-primary-blue">定員:</strong> 各クラス15名</li>
+                            <li><strong class="text-primary-blue">振替制度:</strong> あり（他校または別曜日に振替可能）</li>
+                        </ul>
+                    </div>
+
+                    <!-- 豊明校 -->
+                    <div class="card">
+                        <h3 class="text-3xl font-bold text-primary-blue mb-4 text-center">豊明校</h3>
+                        <img src="imgs/toyoake.png" alt="豊明校の様子" class="rounded-lg mb-6 w-full h-48 object-cover">
+                        <ul class="text-gray-700 space-y-3">
+                            <li><strong class="text-primary-blue">対象学年:</strong> 小学校1年生〜6年生</li>
+                            <li><strong class="text-primary-blue">曜日・時間:</strong> 毎週月曜日 17:00-18:15 (キッズ) / 18:30-20:00 (ジュニア)</li>
+                            <li><strong class="text-primary-blue">会場アクセス:</strong> 愛知朝鮮中高級学校 <a href="https://maps.app.goo.gl/your_seto_map_link" target="_blank" class="text-secondary-green hover:underline">(地図)</a></li>
+                            <li><strong class="text-primary-blue">料金:</strong> 月謝 ¥8,000 (税込) / 入会金 ¥5,000 (税込)</li>
+                            <li><strong class="text-primary-blue">定員:</strong> 各クラス15名</li>
+                            <li><strong class="text-primary-blue">振替制度:</strong> あり（他校または別曜日に振替可能）</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 📝 体験・入会の流れ (Flow) -->
+        <section id="flow" class="py-16 md:py-24 bg-white">
+            <div class="container mx-auto px-4">
+                <h2 class="section-title">体験・入会の流れ</h2>
+
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-12 max-w-5xl mx-auto">
+                    <!-- 体験の申し込み方法 -->
+                    <div class="card">
+                        <h3 class="text-2xl font-bold text-primary-blue mb-6 text-center">無料体験のお申し込み</h3>
+                        <ol class="list-decimal list-inside text-gray-700 space-y-4 text-lg">
+                            <li><strong class="font-semibold">フォームからお申し込み:</strong> 下記の無料体験フォームに必要事項をご記入の上、送信してください。</li>
+                            <li><strong class="font-semibold">日程調整のご連絡:</strong> 担当者より、ご希望の校舎・曜日・時間帯を確認し、体験日程を調整させていただきます。</li>
+                            <li><strong class="font-semibold">体験レッスン当日:</strong> 指定の日時に会場へお越しください。持ち物については下記をご確認ください。</li>
+                        </ol>
+                        <div class="mt-8 text-center">
+                            <a href="#contact" class="btn-primary">無料体験フォームへ</a>
+                        </div>
+                    </div>
+
+                    <!-- 当日の持ち物・流れ -->
+                    <div class="card">
+                        <h3 class="text-2xl font-bold text-primary-blue mb-6 text-center">当日の持ち物・流れ</h3>
+                        <ul class="list-disc list-inside text-gray-700 space-y-4 text-lg">
+                            <li><strong class="font-semibold">持ち物:</strong> サッカーボール（4号球または5号球）、運動できる服装、トレーニングシューズ、飲み物、タオル</li>
+                            <li><strong class="font-semibold">当日の流れ:</strong>
+                                <ul class="list-disc list-inside ml-6 mt-2 text-base">
+                                    <li>集合・受付（10分前）</li>
+                                    <li>コーチ紹介・簡単な説明</li>
+                                    <li>体験レッスン参加（通常のトレーニングに参加）</li>
+                                    <li>レッスン終了後、質疑応答・ご案内</li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- よくある質問 -->
+                <div class="mt-16 max-w-4xl mx-auto">
+                    <h3 class="text-3xl font-bold text-primary-blue mb-8 text-center">よくある質問 (FAQ)</h3>
+                    <div class="space-y-6">
+                        <div class="card p-6">
+                            <h4 class="font-bold text-xl mb-2">Q: サッカー経験が少ないのですが、レベルが合うか心配です。</h4>
+                            <p class="text-gray-600">A: ご安心ください。まじトレでは、お子様のレベルに合わせた指導を心がけており、初心者の方でも安心してご参加いただけます。体験時にコーチにご相談いただければ、最適なクラスをご案内します。</p>
+                        </div>
+                        <div class="card p-6">
+                            <h4 class="font-bold text-xl mb-2">Q: 体験レッスンは何回参加できますか？</h4>
+                            <p class="text-gray-600">A: 原則として1回とさせていただいておりますが、ご希望に応じてご相談に応じます。お気軽にお問い合わせください。</p>
+                        </div>
+                        <div class="card p-6">
+                            <h4 class="font-bold text-xl mb-2">Q: 入会後の費用について教えてください。</h4>
+                            <p class="text-gray-600">A: 入会金と月謝、スポーツ保険料が必要となります。詳細は体験時またはお問い合わせ時にご説明いたします。</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 入会後の流れ -->
+                <div class="mt-16 max-w-4xl mx-auto">
+                    <h3 class="text-3xl font-bold text-primary-blue mb-8 text-center">ご入会後の流れ</h3>
+                    <div class="card p-8">
+                        <ol class="list-decimal list-inside text-gray-700 space-y-4 text-lg">
+                            <li><strong class="font-semibold">LINE公式アカウント連携:</strong> 入会後、保護者様にはLINE公式アカウントにご登録いただきます。緊急連絡やレッスンの変更、年間予定などはLINEで配信いたします。</li>
+                            <li><strong class="font-semibold">会費のお支払い:</strong> 月謝は口座振替またはクレジットカード決済となります。毎月〇日に引き落としとなります。</li>
+                            <li><strong class="font-semibold">年間予定のご案内:</strong> 年間を通してのイベント、長期休暇中の特別レッスンなどの予定を随時お知らせいたします。</li>
+                            <li><strong class="font-semibold">個別面談・フィードバック:</strong> 定期的に保護者様との面談や、お子様の成長に関するフィードバックの機会を設けております。</li>
+                        </ol>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ⭐ まじトレの成果・保護者の声 (Results & Testimonials) -->
+        <section id="results" class="py-16 md:py-24 bg-gray-50">
+            <div class="container mx-auto px-4">
+                <h2 class="section-title">まじトレの成果・保護者の声</h2>
+
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-8 mb-12">
+                    <!-- 保護者の声 -->
+                    <div class="card">
+                        <h3 class="text-2xl font-bold text-primary-blue mb-4 text-center">保護者の皆様からの声</h3>
+                        <div class="space-y-6">
+                            <div class="bg-gray-100 p-6 rounded-lg shadow-inner">
+                                <p class="italic text-gray-700 mb-3">「息子がこんなにもサッカーに夢中になるとは思いませんでした。コーチの熱心な指導のおかげで、技術だけでなく精神面も大きく成長しました。」</p>
+                                <p class="text-right font-semibold text-gray-800">- 山田様 (小学4年生 保護者)</p>
+                            </div>
+                            <div class="bg-gray-100 p-6 rounded-lg shadow-inner">
+                                <p class="italic text-gray-700 mb-3">「少人数制なので、一人ひとりに目が届いているのがよく分かります。苦手だったドリブルも、今では自信を持ってできるようになりました！」</p>
+                                <p class="text-right font-semibold text-gray-800">- 佐藤様 (小学2年生 保護者)</p>
+                            </div>
+                            <div class="bg-gray-100 p-6 rounded-lg shadow-inner">
+                                <p class="italic text-gray-700 mb-3">「他のスクールでは感じられなかった、本気で上手くなろうとする子供たちの熱気が素晴らしいです。コーチの指導も理論的で分かりやすいと子供が言っています。」</p>
+                                <p class="text-right font-semibold text-gray-800">- 田中様 (小学6年生 保護者)</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- スクール生の成長ストーリー -->
+                    <div class="card">
+                        <h3 class="text-2xl font-bold text-primary-blue mb-4 text-center">スクール生の成長ストーリー</h3>
+                        <div class="space-y-6">
+                            <div class="flex items-center space-x-4 bg-gray-100 p-4 rounded-lg shadow-inner">
+                                <img src="https://i.pravatar.cc/300?img=37" alt="成長ストーリー1" class="w-24 h-24 rounded-full object-cover">
+                                <div>
+                                    <p class="font-semibold text-lg">A君 (小学3年生)</p>
+                                    <p class="text-gray-700">入会時、パスが苦手でしたが、3ヶ月でパス成功率が20%向上！自信を持ってプレーできるようになりました。</p>
+                                </div>
+                            </div>
+                            <div class="flex items-center space-x-4 bg-gray-100 p-4 rounded-lg shadow-inner">
+                                <img src="https://i.pravatar.cc/300?img=2" alt="成長ストーリー2" class="w-24 h-24 rounded-full object-cover">
+                                <div>
+                                    <p class="font-semibold text-lg">Bさん (小学5年生)</p>
+                                    <p class="text-gray-700">シュートの精度に課題がありましたが、半年でシュート決定率が30%アップ！得点に絡む機会が増えました。</p>
+                                </div>
+                            </div>
+                            <div class="flex items-center space-x-4 bg-gray-100 p-4 rounded-lg shadow-inner">
+                                <img src="https://i.pravatar.cc/300?img=12" alt="成長ストーリー3" class="w-24 h-24 rounded-full object-cover">
+                                <div>
+                                    <p class="font-semibold text-lg">C君 (小学6年生)</p>
+                                    <p class="text-gray-700">個人技を磨き、1対1の突破力が格段に向上。チームのエースとして活躍しています。</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- MVP紹介 -->
+                <div class="mt-16 max-w-4xl mx-auto text-center">
+                    <h3 class="text-3xl font-bold text-primary-blue mb-8">今月のMVP</h3>
+                    <div class="card p-8">
+                        <img src="https://i.pravatar.cc/300?img=4" alt="MVP選手" class="w-48 h-48 rounded-full object-cover mx-auto mb-6 border-4 border-secondary-green shadow-xl">
+                        <p class="text-2xl font-bold text-gray-800 mb-2">〇〇君 (小学5年生)</p>
+                        <p class="text-gray-600 mb-4">今月は特に守備での貢献が光り、チームのピンチを何度も救ってくれました！日々の努力が実を結んでいます。</p>
+                        <a href="https://www.instagram.com/your_majitore_insta" target="_blank" class="text-secondary-green hover:underline font-semibold">Instagramで詳細を見る</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 📅 イベント・単発レッスン情報 (Events) -->
+        <section id="events" class="py-16 md:py-24 bg-white">
+            <div class="container mx-auto px-4">
+                <h2 class="section-title">イベント・単発レッスン情報</h2>
+
+                <div class="max-w-4xl mx-auto text-center mb-12">
+                    <p class="text-xl text-gray-700 leading-relaxed">
+                        まじトレでは、通常のレッスン以外にも、様々なイベントや単発レッスンを開催しています。<br class="hidden md:inline">
+                        スキルアップやサッカーの楽しさを再発見するチャンスです！
+                    </p>
+                </div>
+
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-8 mt-12">
+                    <!-- キックイベント -->
+                    <div class="card">
+                        <h3 class="text-2xl font-bold text-primary-blue mb-4 text-center">キックイベント</h3>
+                        <img src="https://placehold.co/600x350/f59e0b/ffffff?text=Event1" alt="キックイベント" class="rounded-lg mb-6 w-full h-48 object-cover">
+                        <p class="text-gray-700 mb-4">
+                            正確なキック、力強いシュートを身につけるための特別レッスンです。プロのコーチが直接指導し、キックの基本から応用までを徹底的に指導します。
+                        </p>
+                        <ul class="list-disc list-inside text-gray-600 mb-4">
+                            <li>開催日: 2025年8月15日(木)</li>
+                            <li>時間: 10:00 - 12:00</li>
+                            <li>会場: 一宮校グラウンド</li>
+                            <li>参加費: ¥3,000</li>
+                        </ul>
+                        <div class="text-center">
+                            <a href="#contact" class="btn-primary">お申し込みフォームへ</a>
+                        </div>
+                    </div>
+
+                    <!-- まじトレゲーム -->
+                    <div class="card">
+                        <h3 class="text-2xl font-bold text-primary-blue mb-4 text-center">まじトレゲーム</h3>
+                        <img src="https://placehold.co/600x350/10b981/ffffff?text=Game1" alt="まじトレゲーム" class="rounded-lg mb-6 w-full h-48 object-cover">
+                        <p class="text-gray-700 mb-4">
+                            実践形式でスキルを試す「まじトレゲーム」。普段のトレーニングの成果を発揮し、ゲームの中で判断力や連携を高めます。
+                        </p>
+                        <ul class="list-disc list-inside text-gray-600 mb-4">
+                            <li>開催日: 2025年8月22日(木)</li>
+                            <li>時間: 14:00 - 16:00</li>
+                            <li>会場: 瀬戸校グラウンド</li>
+                            <li>参加費: ¥2,000</li>
+                        </ul>
+                        <div class="text-center">
+                            <a href="https://line.me/R/ti/p/@your_line_id" target="_blank" class="btn-secondary">LINEでお申し込み</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="mt-12 text-center">
+                    <p class="text-xl text-gray-700">その他のイベント情報は、LINE公式アカウントやSNSで随時更新中！</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- 👨‍🏫 指導者紹介 (Coaches) -->
+        <section id="coaches" class="py-16 md:py-24 bg-gray-50">
+            <div class="container mx-auto px-4">
+                <h2 class="section-title">指導者紹介</h2>
+
+                <!-- <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8"> -->
+                    <div class="grid grid-cols-1 md:grid-cols-1 lg:grid-cols-1 gap-8">
+                    <!-- コーチ1 -->
+                    <div class="card text-center max-w-md mx-auto">
+                        <img src="https://i.pravatar.cc/300?img=13" alt="コーチ1" class="w-40 h-40 rounded-full object-cover mx-auto mb-6 border-4 border-primary-blue shadow-lg">
+                        <h3 class="text-2xl font-bold text-primary-blue mb-2">田中 健太</h3>
+                        <p class="text-gray-600 mb-4">ヘッドコーチ</p>
+                        <ul class="text-gray-700 text-left list-disc list-inside mb-4">
+                            <li>指導歴: 10年</li>
+                            <li>資格: JFA公認C級コーチ</li>
+                            <li>チーム経験: 高校サッカー全国大会出場、大学サッカー部主将</li>
+                        </ul>
+                        <p class="text-gray-700 italic">
+                            「サッカーを通じて、子供たちが自信を持ち、何事にも挑戦できる心を育むことが私の使命です。一人ひとりの可能性を信じ、全力でサポートします。」
+                        </p>
+                    </div>
+
+                    <!-- コーチ2 -->
+                    <!-- <div class="card text-center">
+                        <img src="https://placehold.co/200x200/10b981/ffffff?text=コーチ2" alt="コーチ2" class="w-40 h-40 rounded-full object-cover mx-auto mb-6 border-4 border-secondary-green shadow-lg">
+                        <h3 class="text-2xl font-bold text-primary-blue mb-2">鈴木 彩</h3>
+                        <p class="text-gray-600 mb-4">アシスタントコーチ</p>
+                        <ul class="text-gray-700 text-left list-disc list-inside mb-4">
+                            <li>指導歴: 5年</li>
+                            <li>資格: JFA公認D級コーチ</li>
+                            <li>チーム経験: 女子サッカーリーグ所属</li>
+                        </ul>
+                        <p class="text-gray-700 italic">
+                            「子供たちがサッカーを心から楽しめる環境を提供することを大切にしています。笑顔で成長できる、そんな場所を一緒に作りましょう！」
+                        </p>
+                    </div> -->
+
+                    <!-- コーチ3 -->
+                    <!-- <div class="card text-center">
+                        <img src="https://placehold.co/200x200/f59e0b/ffffff?text=コーチ3" alt="コーチ3" class="w-40 h-40 rounded-full object-cover mx-auto mb-6 border-4 border-accent-orange shadow-lg">
+                        <h3 class="text-2xl font-bold text-primary-blue mb-2">佐藤 翼</h3>
+                        <p class="text-gray-600 mb-4">フィジカルコーチ</p>
+                        <ul class="text-gray-700 text-left list-disc list-inside mb-4">
+                            <li>指導歴: 7年</li>
+                            <li>資格: スポーツトレーナー</li>
+                            <li>チーム経験: プロサッカークラブユース出身</li>
+                        </ul>
+                        <p class="text-gray-700 italic">
+                            「怪我なく、最大限のパフォーマンスを発揮できるよう、フィジカル面から子供たちをサポートします。基礎体力と正しい体の使い方を指導します。」
+                        </p>
+                    </div> -->
+                </div>
+            </div>
+        </section>
+
+        <!-- 8. 🟩 LINE公式・SNS (LINE/SNS) -->
+        <section id="sns" class="py-16 md:py-24 bg-white">
+            <div class="container mx-auto px-4 text-center">
+                <h2 class="section-title">LINE公式・SNS</h2>
+                <p class="text-xl text-gray-700 mb-10 max-w-2xl mx-auto">
+                    最新情報やイベントの先行案内は、LINE公式アカウントとSNSで更新中！ぜひご登録・フォローをお願いします。
+                </p>
+                <div class="flex flex-col md:flex-row justify-center items-center space-y-6 md:space-y-0 md:space-x-8">
+                    <a href="https://line.me/R/ti/p/@your_line_id" target="_blank" class="btn-secondary flex items-center justify-center w-64">
+                        <img src="https://placehold.co/32x32/ffffff/000000?text=LINE" alt="LINEアイコン" class="mr-3">
+                        LINE公式アカウントを登録
+                    </a>
+                    <a href="https://www.instagram.com/your_majitore_insta" target="_blank" class="btn-outline border-primary-blue text-primary-blue hover:bg-primary-blue hover:text-white flex items-center justify-center w-64">
+                        <img src="https://placehold.co/32x32/ffffff/000000?text=Insta" alt="Instagramアイコン" class="mr-3">
+                        Instagramを見る
+                    </a>
+                </div>
+
+                <!-- Instagram埋め込みのプレースホルダー -->
+                <div class="mt-16 max-w-3xl mx-auto bg-gray-100 p-8 rounded-xl shadow-lg">
+                    <h3 class="text-2xl font-bold text-primary-blue mb-6">Instagramフィード</h3>
+                    <p class="text-gray-600">
+                        <!-- ここにInstagramの埋め込みコードを挿入してください。 -->
+                        <!-- 例: <blockquote class="instagram-media" data-instgrm-captioned data-instgrm-permalink="https://www.instagram.com/p/your_post_id/" data-instgrm-version="14" style=" background:#FFF; border:0; border-radius:3px; box-shadow:0 0 1px 0 rgba(0,0,0,0.5),0 1px 10px 0 rgba(0,0,0,0.15); margin: 1px; max-width:540px; min-width:326px; padding:0; width:99.375%; width:-webkit-calc(100% - 2px); width:calc(100% - 2px);"><div style="padding:16px;"> <a href="https://www.instagram.com/p/your_post_id/" style=" background:#FFFFFF; line-height:0; padding:0 0; text-align:center; text-decoration:none; width:100%;" target="_blank"> <div style=" display: flex; flex-direction: row; align-items: center;"> <div style="background-color: #F4F4F4; border-radius: 50%; flex-grow: 0; height: 40px; margin-right: 14px; width: 40px;"></div> <div style="display: flex; flex-direction: column; flex-grow: 1; justify-content: center;"> <div style=" background-color: #F4F4F4; border-radius: 4px; height: 14px; margin-bottom: 6px; width: 100px;"></div> <div style=" background-color: #F4F4F4; border-radius: 4px; height: 14px; width: 60px;"></div></div></div><div style="padding: 19% 0;"></div> <div style="display:block; height:50px; margin:0 auto 12px; width:50px;"><svg width="50px" height="50px" viewBox="0 0 60 60" version="1.1" xmlns="https://www.w3.org/2000/svg" xmlns:xlink="https://www.w3.org/1999/xlink"><g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd"><g transform="translate(-511.000000, -20.000000)" fill="#000000"><g><path d="M556.869,30.41 C554.814,30.41 553.148,32.076 553.148,34.131 C553.148,36.186 554.814,37.852 556.869,37.852 C558.924,37.852 560.59,36.186 560.59,34.131 C560.59,32.076 558.924,30.41 556.869,30.41 M541,60.657 C535.114,60.657 530.342,55.887 530.342,50 C530.342,44.114 535.114,39.342 541,39.342 C546.887,39.342 551.658,44.114 551.658,50 C551.658,55.887 546.887,60.657 541,60.657 M541,33.886 C532.1,33.886 524.886,41.1 524.886,50 C524.886,58.899 532.1,66.113 541,66.113 C549.9,66.113 557.114,58.899 557.114,50 C557.114,41.1 549.9,33.886 541,33.886 M565.378,62.101 C565.244,65.047 564.093,66.006 562.101,67.042 C560.109,68.076 557.100,68.603 552.100,68.603 C549.100,68.603 546.100,68.076 544.100,67.042 C542.100,66.006 540.949,65.047 540.814,62.101 C540.679,59.155 540.679,57.100 540.679,50 C540.679,42.900 540.679,40.845 540.814,37.899 C540.949,34.953 542.100,33.994 544.100,32.958 C546.100,31.924 549.100,31.397 552.100,31.397 C555.100,31.397 558.100,31.924 560.100,32.958 C562.100,33.994 563.251,34.953 563.386,37.899 C563.521,40.845 563.521,42.900 563.521,50 C563.521,57.100 563.521,59.155 563.386,62.101 M570.82,37.631 C570.674,34.438 569.539,32.185 567.599,30.245 C565.659,28.305 563.406,27.171 560.213,27.025 C556.881,26.879 555.105,26.879 541,26.879 C526.896,26.879 525.122,26.879 521.789,27.025 C518.596,27.171 516.343,28.305 514.403,30.245 C512.462,32.185 511.326,34.438 511.181,37.631 C511.035,40.921 511.035,42.081 511.035,50 C511.035,57.918 511.035,59.078 511.181,62.369 C511.326,65.562 512.462,67.815 514.403,69.755 C516.343,71.695 518.596,72.829 521.789,72.975 C525.122,73.121 526.896,73.121 541,73.121 C555.105,73.121 556.881,73.121 560.213,72.975 C563.406,72.829 565.659,71.695 567.599,69.755 C569.539,67.815 570.674,65.562 570.82,62.369 C570.966,59.078 570.966,57.918 570.966,50 C570.966,42.081 570.966,40.921 570.82,37.631"></path></g></g></g></svg></div><div style="padding-top: 8px;"> <div style=" color:#3897f0; font-family:Arial,sans-serif; font-size:14px; font-style:normal; font-weight:550; line-height:18px;">View this post on Instagram</div></div><div style="padding: 12.5% 0;"></div> <div style="display: flex; flex-direction: row; margin-bottom: 14px; align-items: center;"><div> <div style="background-color: #F4F4F4; border-radius: 50%; height: 12.5px; width: 12.5px; transform: translateX(0px) translateY(7px);"></div> <div style="background-color: #F4F4F4; height: 12.5px; transform: rotate(-45deg) translateX(3px) translateY(1px); width: 12.5px; flex-grow: 0; margin-right: 14px; margin-left: 2px;"></div> <div style="background-color: #F4F4F4; border-radius: 50%; height: 12.5px; width: 12.5px; transform: translateX(9px) translateY(-18px);"></div></div><div style="margin-left: 8px;"> <div style=" background-color: #F4F4F4; border-radius: 4px; height: 12.5px; width: 200px;"></div> <div style=" background-color: #F4F4F4; border-radius: 4px; height: 12.5px; width: 150px; margin-left: auto;"></div></div></div><div style="display: flex; flex-direction: column; flex-grow: 1; justify-content: center; margin-bottom: 24px;"> <div style=" background-color: #F4F4F4; border-radius: 4px; height: 14px; margin-bottom: 6px; width: 224px;"></div> <div style=" background-color: #F4F4F4; border-radius: 4px; height: 14px; width: 180px;"></div></div></a><p style=" color:#c9c8cd; font-family:Arial,sans-serif; font-size:14px; line-height:17px; margin-bottom:0; margin-top:8px; overflow:hidden; padding:8px 0 7px; text-align:center; text-overflow:ellipsis; white-space:nowrap;"><a href="https://www.instagram.com/p/your_post_id/" style=" color:#c9c8cd; font-family:Arial,sans-serif; font-size:14px; font-style:normal; font-weight:normal; line-height:17px; text-decoration:none;" target="_blank">A post shared by まじトレサッカースクール (@your_majitore_insta)</a></p></div></blockquote> <script async src="//www.instagram.com/embed.js"></script> -->
+                        <p>Instagramの最新投稿がここに表示されます。上記のコードを置き換えてください。</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 9. 📩 お問い合わせ (Contact) -->
+        <section id="contact" class="py-16 md:py-24 bg-gray-50">
+            <div class="container mx-auto px-4">
+                <h2 class="section-title">お問い合わせ</h2>
+
+                <div class="max-w-3xl mx-auto bg-white p-8 md:p-12 rounded-xl shadow-lg">
+                    <p class="text-xl text-gray-700 mb-8 text-center">
+                        無料体験のお申し込み、ご質問など、お気軽にお問い合わせください。
+                    </p>
+
+                    <form action="#" method="POST" class="space-y-6">
+                        <div>
+                            <label for="name" class="block text-gray-700 text-sm font-bold mb-2">お名前 <span class="text-red-500">*</span></label>
+                            <input type="text" id="name" name="name" required class="shadow appearance-none border rounded-lg w-full py-3 px-4 text-gray-700 leading-tight focus:outline-none focus:ring-2 focus:ring-primary-blue focus:border-transparent">
+                        </div>
+                        <div>
+                            <label for="grade" class="block text-gray-700 text-sm font-bold mb-2">学年 <span class="text-red-500">*</span></label>
+                            <select id="grade" name="grade" required class="shadow appearance-none border rounded-lg w-full py-3 px-4 text-gray-700 leading-tight focus:outline-none focus:ring-2 focus:ring-primary-blue focus:border-transparent">
+                                <option value="">選択してください</option>
+                                <option value="未就学">未就学</option>
+                                <option value="小学1年生">小学1年生</option>
+                                <option value="小学2年生">小学2年生</option>
+                                <option value="小学3年生">小学3年生</option>
+                                <option value="小学4年生">小学4年生</option>
+                                <option value="小学5年生">小学5年生</option>
+                                <option value="小学6年生">小学6年生</option>
+                                <option value="中学1年生">中学1年生</option>
+                                <option value="中学2年生">中学2年生</option>
+                                <option value="中学3年生">中学3年生</option>
+                                <option value="その他">その他</option>
+                            </select>
+                        </div>
+                        <div>
+                            <label for="email" class="block text-gray-700 text-sm font-bold mb-2">メールアドレス <span class="text-red-500">*</span></label>
+                            <input type="email" id="email" name="email" required class="shadow appearance-none border rounded-lg w-full py-3 px-4 text-gray-700 leading-tight focus:outline-none focus:ring-2 focus:ring-primary-blue focus:border-transparent">
+                        </div>
+                        <div>
+                            <label for="phone" class="block text-gray-700 text-sm font-bold mb-2">電話番号 (任意)</label>
+                            <input type="tel" id="phone" name="phone" class="shadow appearance-none border rounded-lg w-full py-3 px-4 text-gray-700 leading-tight focus:outline-none focus:ring-2 focus:ring-primary-blue focus:border-transparent">
+                        </div>
+                        <div>
+                            <label for="school_interest" class="block text-gray-700 text-sm font-bold mb-2">ご希望の校舎 (体験希望の場合)</label>
+                            <select id="school_interest" name="school_interest" class="shadow appearance-none border rounded-lg w-full py-3 px-4 text-gray-700 leading-tight focus:outline-none focus:ring-2 focus:ring-primary-blue focus:border-transparent">
+                                <option value="">選択してください</option>
+                                <option value="一宮校">一宮校</option>
+                                <option value="瀬戸校">瀬戸校</option>
+                                <option value="豊明校">豊明校</option>
+                                <option value="未定">未定</option>
+                            </select>
+                        </div>
+                        <div>
+                            <label for="message" class="block text-gray-700 text-sm font-bold mb-2">お問い合わせ内容 <span class="text-red-500">*</span></label>
+                            <textarea id="message" name="message" rows="6" required class="shadow appearance-none border rounded-lg w-full py-3 px-4 text-gray-700 leading-tight focus:outline-none focus:ring-2 focus:ring-primary-blue focus:border-transparent"></textarea>
+                        </div>
+                        <div class="text-center">
+                            <button type="submit" class="btn-primary w-full md:w-auto">送信する</button>
+                        </div>
+                    </form>
+
+                    <div class="mt-8 text-center text-gray-700">
+                        <p>お電話、またはLINEでもお気軽にお問い合わせください。</p>
+                        <p class="mt-2">電話番号: <a href="tel:000-0000-0000" class="text-primary-blue hover:underline">000-0000-0000</a></p>
+                        <p>LINE: <a href="https://line.me/R/ti/p/@your_line_id" target="_blank" class="text-primary-blue hover:underline">LINE公式アカウント</a></p>
+                        <p class="mt-4">
+                            <a href="#flow" class="text-secondary-green hover:underline">よくある質問はこちら</a>
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-gray-800 text-white py-8">
+        <div class="container mx-auto text-center px-4">
+            <p>&copy; 2025 まじトレ All rights reserved.</p>
+            <div class="flex justify-center space-x-4 mt-4">
+                <a href="#home" class="text-gray-400 hover:text-white">トップ</a>
+                <a href="#features" class="text-gray-400 hover:text-white">特徴</a>
+                <a href="#contact" class="text-gray-400 hover:text-white">お問い合わせ</a>
+                <!-- プライバシーポリシーなどのリンクを追加 -->
+            </div>
+        </div>
+    </footer>
+
+        <!-- JavaScript for Mobile Menu Toggle -->
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const mobileMenuButton = document.getElementById('mobile-menu-button');
+            const mobileMenu = document.getElementById('mobile-menu');
+
+            if (mobileMenuButton && mobileMenu) {
+                mobileMenuButton.addEventListener('click', function() {
+                    mobileMenu.classList.toggle('hidden'); // hiddenクラスをトグルして表示/非表示を切り替える
+                });
+
+                // メニュー内のリンクをクリックした際にもメニューを閉じる
+                mobileMenu.querySelectorAll('a').forEach(link => {
+                    link.addEventListener('click', () => {
+                        mobileMenu.classList.add('hidden');
+                    });
+                });
+            }
+        });
+    </script>
+
+</body>
 </html>
